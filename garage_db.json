@@ -1,0 +1,513 @@
+{
+    "devices": {
+        "1": {
+            "thing_id": 1,
+            "name": "TemperatureSensor",
+            "value": 16.3,
+            "unit": "°C",
+            "timestamp": "2025-12-25T04:46:03.427854"
+        },
+        "2": {
+            "thing_id": 2,
+            "name": "MotionSensor",
+            "value": false,
+            "unit": "boolean",
+            "timestamp": "2025-12-25T04:46:03.474403"
+        },
+        "4": {
+            "thing_id": 4,
+            "name": "SmartLighting",
+            "state": true,
+            "last_activation": "2025-12-25T04:32:16.436969",
+            "brightness": 50
+        },
+        "3": {
+            "thing_id": 3,
+            "name": "GarageDoor",
+            "state": true,
+            "last_activation": "2025-12-25T04:32:18.199609"
+        }
+    },
+    "logs": [
+        {
+            "timestamp": "2025-12-25T04:31:46.761871",
+            "message": "База данных очищена администратором"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:03.804785",
+            "message": "Эмулятор включён"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:06.020914",
+            "message": "[EMULATOR] TemperatureSensor: 22.19 → 28.19"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:06.068154",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:11.109339",
+            "message": "[EMULATOR] TemperatureSensor: 28.19 → 29.93"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:11.131154",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:16.186074",
+            "message": "[EMULATOR] TemperatureSensor: 29.93 → 28.69"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:16.233065",
+            "message": "[EMULATOR] MotionSensor: False → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:16.438039",
+            "message": "Освещение включено (50%)"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:18.200167",
+            "message": "Ворота открыты"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:21.273268",
+            "message": "[EMULATOR] TemperatureSensor: 28.69 → 18.32"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:21.320338",
+            "message": "[EMULATOR] MotionSensor: False → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:26.379608",
+            "message": "[EMULATOR] TemperatureSensor: 18.32 → 16.54"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:26.426482",
+            "message": "[EMULATOR] MotionSensor: False → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:31.460058",
+            "message": "[EMULATOR] TemperatureSensor: 16.54 → 23.51"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:31.520053",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:36.541954",
+            "message": "[EMULATOR] TemperatureSensor: 23.51 → 16.24"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:36.553219",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:41.578901",
+            "message": "[EMULATOR] TemperatureSensor: 16.24 → 23.92"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:41.594071",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:46.639065",
+            "message": "[EMULATOR] TemperatureSensor: 23.92 → 25.0"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:46.685576",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:51.709634",
+            "message": "[EMULATOR] TemperatureSensor: 25.0 → 16.28"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:51.723843",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:56.748794",
+            "message": "[EMULATOR] TemperatureSensor: 16.28 → 25.68"
+        },
+        {
+            "timestamp": "2025-12-25T04:32:56.809457",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:01.868580",
+            "message": "[EMULATOR] TemperatureSensor: 25.68 → 28.75"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:01.915482",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:06.937952",
+            "message": "[EMULATOR] TemperatureSensor: 28.75 → 18.51"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:06.999271",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:12.046221",
+            "message": "[EMULATOR] TemperatureSensor: 18.51 → 16.81"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:12.107785",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:17.155524",
+            "message": "[EMULATOR] TemperatureSensor: 16.81 → 28.45"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:17.176851",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:22.212134",
+            "message": "[EMULATOR] TemperatureSensor: 28.45 → 26.68"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:22.272771",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:27.320813",
+            "message": "[EMULATOR] TemperatureSensor: 26.68 → 20.02"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:27.366720",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:32.411103",
+            "message": "[EMULATOR] TemperatureSensor: 20.02 → 18.77"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:32.472513",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:37.525347",
+            "message": "[EMULATOR] TemperatureSensor: 18.77 → 21.94"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:37.571388",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:42.633224",
+            "message": "[EMULATOR] TemperatureSensor: 21.94 → 29.09"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:42.696325",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:47.732888",
+            "message": "[EMULATOR] TemperatureSensor: 29.09 → 27.88"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:47.779448",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:52.827525",
+            "message": "[EMULATOR] TemperatureSensor: 27.88 → 22.06"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:52.887643",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:57.947690",
+            "message": "[EMULATOR] TemperatureSensor: 22.06 → 21.08"
+        },
+        {
+            "timestamp": "2025-12-25T04:33:58.009350",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:03.065680",
+            "message": "[EMULATOR] TemperatureSensor: 21.08 → 27.82"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:03.112632",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:08.158034",
+            "message": "[EMULATOR] TemperatureSensor: 27.82 → 27.5"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:08.219437",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:13.276286",
+            "message": "[EMULATOR] TemperatureSensor: 27.5 → 16.73"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:13.338243",
+            "message": "[EMULATOR] MotionSensor: False → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:18.401182",
+            "message": "[EMULATOR] TemperatureSensor: 16.73 → 15.96"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:18.462442",
+            "message": "[EMULATOR] MotionSensor: False → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:23.500792",
+            "message": "[EMULATOR] TemperatureSensor: 15.96 → 25.55"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:23.563057",
+            "message": "[EMULATOR] MotionSensor: False → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:28.602864",
+            "message": "[EMULATOR] TemperatureSensor: 25.55 → 19.05"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:28.661772",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:33.699372",
+            "message": "[EMULATOR] TemperatureSensor: 19.05 → 20.16"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:33.711773",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:38.763229",
+            "message": "[EMULATOR] TemperatureSensor: 20.16 → 28.91"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:38.800463",
+            "message": "[EMULATOR] MotionSensor: False → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:43.856973",
+            "message": "[EMULATOR] TemperatureSensor: 28.91 → 25.13"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:43.893059",
+            "message": "[EMULATOR] MotionSensor: False → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:48.947444",
+            "message": "[EMULATOR] TemperatureSensor: 25.13 → 24.48"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:48.993574",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:54.019861",
+            "message": "[EMULATOR] TemperatureSensor: 24.48 → 28.34"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:54.081908",
+            "message": "[EMULATOR] MotionSensor: True → True"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:59.117216",
+            "message": "[EMULATOR] TemperatureSensor: 28.34 → 21.63"
+        },
+        {
+            "timestamp": "2025-12-25T04:34:59.162799",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:35:00.903908",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:35:00.904423",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:35:00.905428",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:35:00.905428",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:39:47.622450",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:39:47.623509",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:39:47.624037",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:39:47.625072",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:39:47.858661",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:39:47.859661",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:39:47.860661",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:39:47.860661",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:43:50.112611",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:43:50.113612",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:43:50.113612",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:43:50.115231",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:43:50.362365",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:43:50.363365",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:43:50.364365",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:43:50.364365",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:32.140175",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:32.141220",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:32.142273",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:32.142790",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:32.385944",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:32.386944",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:32.387538",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:32.388583",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:40.007351",
+            "message": "Эмулятор включён"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:44.218628",
+            "message": "[EMULATOR] TemperatureSensor: 27.63 → 24.1"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:44.266143",
+            "message": "[EMULATOR] MotionSensor: True → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:44:46.982953",
+            "message": "Эмулятор выключен"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:06.530592",
+            "message": "Отчёт датчиков: Температура = 24.1 °C, Движение = нет"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:50.820568",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:50.821643",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:50.822162",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:50.823181",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:51.059571",
+            "message": "Device added: TemperatureSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:51.060571",
+            "message": "Device added: MotionSensor"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:51.061569",
+            "message": "Device added: GarageDoor"
+        },
+        {
+            "timestamp": "2025-12-25T04:45:51.062564",
+            "message": "Device added: SmartLighting"
+        },
+        {
+            "timestamp": "2025-12-25T04:46:00.167226",
+            "message": "Эмулятор включён"
+        },
+        {
+            "timestamp": "2025-12-25T04:46:03.395944",
+            "message": "[EMULATOR] TemperatureSensor: 16.05 → 16.3"
+        },
+        {
+            "timestamp": "2025-12-25T04:46:03.458864",
+            "message": "[EMULATOR] MotionSensor: False → False"
+        },
+        {
+            "timestamp": "2025-12-25T04:46:05.935620",
+            "message": "Эмулятор выключен"
+        },
+        {
+            "timestamp": "2025-12-25T04:46:07.958283",
+            "message": "Отчёт датчиков: Температура = 16.3 °C,\nДвижение = нет"
+        }
+    ]
+}

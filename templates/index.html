@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Умный гараж</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <span id="time">--:--</span>
+        <span id="date">--.--.----</span>
+        <span id="temperature">-- °C</span>
+    </div>
+
+    <h1>УМНЫЙ ГАРАЖ</h1>
+
+    <div class="block">
+        <h2>🚗 ГАРАЖ</h2>
+
+        <div class="row">
+            <span>ВОРОТА:</span>
+            <span id="door-state" class="gray">---</span>
+            <button id="door-btn" class="btn">---</button>
+        </div>
+
+        <div class="row">
+            <span>💡 ОСВЕЩЕНИЕ:</span>
+            <span id="light-state" class="gray">---</span>
+        </div>
+
+        <input
+            type="range"
+            id="brightness"
+            min="0"
+            max="100"
+            value="0"
+        >
+        <!-- <button class="btn" onclick="setLight()">ПРИМЕНИТЬ</button> -->
+
+        <div class="row">
+            <span>🛰 ДАТЧИК ДВИЖЕНИЯ:</span>
+            <span id="motion-state" class="gray">---</span>
+        </div>
+    </div>
+
+    <div class="block">
+        <h2>📊 ЖУРНАЛ СОБЫТИЙ</h2>
+        <div id="logs"></div>
+    </div>
+
+</div>
+<hr>
+<h2>Админ-панель</h2>
+
+<button onclick="toggleEmulator()">Вкл/выкл эмулятор</button>
+<button onclick="clearDatabase()">Очистить базу</button>
+<button onclick="forceReport()">Принудительный отчет</button>
+
+<h3>Ручное управление датчиками</h3>
+
+<label>Температура:</label>
+<input type="number" id="admin-temp">
+<button onclick="setTemp()">Установить</button>
+
+<label>Движение:</label>
+<select id="admin-motion">
+    <option value="true">Есть</option>
+    <option value="false">Нет</option>
+</select>
+<button onclick="setMotion()">Установить</button>
+
+
+<script>
+const UPDATE_INTERVAL = 3000; // n мс
+let updateTimer = null;
+
+async function updateState() {
+    try {
+        const response = await fetch("/api/state");
+        const data = await response.json();
+
+        const now = new Date();
+        document.getElementById("time").textContent =
+            now.toLocaleTimeString().slice(0, 5);
+        document.getElementById("date").textContent =
+            now.toLocaleDateString();
+
+        document.getElementById("temperature").textContent =
+            `${data.temperature.value} °C`;
+
+        const doorState = document.getElementById("door-state");
+        const doorBtn = document.getElementById("door-btn");
+
+        if (data.door.state) {
+            doorState.textContent = "ОТКРЫТЫ";
+            doorState.className = "green";
+            doorBtn.textContent = "ЗАКРЫТЬ";
+        } else {
+            doorState.textContent = "ЗАКРЫТЫ";
+            doorState.className = "red";
+            doorBtn.textContent = "ОТКРЫТЬ";
+        }
+
+        const lightState = document.getElementById("light-state");
+        const brightnessSlider = document.getElementById("brightness");
+
+        brightnessSlider.value = data.light.brightness;
+
+        if (data.light.state) {
+            lightState.textContent =
+                `ВКЛ (${data.light.brightness}%)`;
+            lightState.className = "green";
+        } else {
+            lightState.textContent = "ВЫКЛ";
+            lightState.className = "red";
+        }
+
+        const motionState = document.getElementById("motion-state");
+
+        if (data.motion.value) {
+            motionState.textContent = "ЕСТЬ";
+            motionState.className = "green";
+        } else {
+            motionState.textContent = "НЕТ";
+            motionState.className = "gray";
+        }
+
+        const logs = document.getElementById("logs");
+        logs.innerHTML = "";
+        data.logs.forEach(log => {
+            logs.innerHTML +=
+                `<div class="log">
+                    ${log.timestamp.slice(11,16)} — ${log.message}
+                 </div>`;
+        });
+
+    } catch (err) {
+        console.error("Ошибка обновления состояния:", err);
+    }
+}
+
+async function toggleDoor() {
+    try {
+        await fetch("/toggle/door", { method: "POST" });
+        await updateState();
+    } catch (err) {
+        console.error("Ошибка управления воротами:", err);
+    }
+}
+
+async function setLight() {
+    try {
+        const brightness =
+            document.getElementById("brightness").value;
+
+        await fetch("/light", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ brightness })
+        });
+
+        await updateState();
+    } catch (err) {
+        console.error("Ошибка управления освещением:", err);
+    }
+}
+
+async function forceReport() {
+    await fetch("/api/admin/force-report", { method: "POST" });
+    updateState();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("door-btn")
+        .addEventListener("click", toggleDoor);
+
+    document.getElementById("brightness")
+        .addEventListener("change", setLight);
+
+    updateState();
+    updateTimer = setInterval(updateState, UPDATE_INTERVAL);
+});
+async function toggleEmulator() {
+    await fetch("/api/admin/emulator", { method: "POST" });
+    updateState();
+}
+
+async function clearDatabase() {
+    await fetch("/api/admin/clear", { method: "POST" });
+    updateState();
+}
+
+async function setTemp() {
+    const value = Number(document.getElementById("admin-temp").value);
+    await fetch("/api/admin/sensor/1", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ value })
+    });
+    updateState();
+}
+
+async function setMotion() {
+    const value =
+        document.getElementById("admin-motion").value === "true";
+
+    await fetch("/api/admin/sensor/2", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ value })
+    });
+    updateState();
+}
+</script>
+
+
+
+</body>
+</html>
