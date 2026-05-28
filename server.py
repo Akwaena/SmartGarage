@@ -73,11 +73,14 @@ def index():
 @app.route("/api/state", methods=["GET"])
 def api_state():
     make_sensor_report()
+    temp_stats = db.get_temperature_stats()
     return jsonify({
         "temperature": temperature.get_data(),
         "motion": motion.get_data(),
         "door": door.get_data(),
         "light": light.get_data(),
+        "average_temperature": temp_stats["average"],
+        "temperature_count": temp_stats["count"],
         "logs": db.get_history()["logs"][-5:][::-1]
     })
 
@@ -170,7 +173,7 @@ def admin_set_sensor(device_id):
 
     old = device.value
     device.set_state(value)
-    db.save_device_state(device)
+    db.save_device_state(device.get_data())
     db.write_log(f"Админ изменил {device.name}: {old} → {value}")
 
     return jsonify({"status": "ok"})

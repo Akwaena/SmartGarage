@@ -47,3 +47,48 @@ h1 {
     font-size: 14px;
     color: #bbb;
 }
+
+/* Всплывающее уведомление (toast) */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 320px;
+    background: #2a0d0d;
+    color: #ffdddd;
+    border: 1px solid #ff5555;
+    border-left: 4px solid #ff5555;
+    border-radius: 4px;
+    padding: 12px 36px 12px 14px;
+    font-size: 14px;
+    line-height: 1.4;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: toast-in 0.25s ease-out;
+}
+
+.toast.hidden {
+    display: none;
+}
+
+.toast-close {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: #ff9999;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toast-close:hover {
+    color: #ffffff;
+}
+
+@keyframes toast-in {
+    from { transform: translateX(20px); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+}

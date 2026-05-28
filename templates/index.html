@@ -8,6 +8,11 @@
 
 <body>
 
+<div id="toast" class="toast hidden">
+    <span id="toast-message"></span>
+    <button id="toast-close" class="toast-close" aria-label="Закрыть">×</button>
+</div>
+
 <div class="container">
 
     <div class="header">
@@ -45,6 +50,12 @@
             <span>🛰 ДАТЧИК ДВИЖЕНИЯ:</span>
             <span id="motion-state" class="gray">---</span>
         </div>
+
+        <div class="row">
+            <span>🌡 СРЕДНЯЯ ТЕМПЕРАТУРА:</span>
+            <span id="avg-temperature" class="gray">-- °C</span>
+            <span id="temp-count" class="gray">(0 зап.)</span>
+        </div>
     </div>
 
     <div class="block">
@@ -76,7 +87,20 @@
 
 <script>
 const UPDATE_INTERVAL = 3000; // n мс
+const TEMP_RECORDS_THRESHOLD = 10;   // оповещение только если записей больше 10
+const TEMP_ALERT_MULTIPLIER = 2;     // ...и температура выше средней в 2 раза
 let updateTimer = null;
+let tempAlertActive = false;         // чтобы не показывать уведомление повторно
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    document.getElementById("toast-message").textContent = message;
+    toast.classList.remove("hidden");
+}
+
+function hideToast() {
+    document.getElementById("toast").classList.add("hidden");
+}
 
 async function updateState() {
     try {
@@ -91,6 +115,45 @@ async function updateState() {
 
         document.getElementById("temperature").textContent =
             `${data.temperature.value} °C`;
+
+        // --- Средняя температура и оповещение ---
+        const avgEl = document.getElementById("avg-temperature");
+        const countEl = document.getElementById("temp-count");
+        const avg = data.average_temperature;       // null, если записей нет
+        const count = data.temperature_count || 0;
+        const currentTemp = data.temperature.value;
+
+        countEl.textContent = `(${count} зап.)`;
+        avgEl.textContent = (avg !== null && avg !== undefined)
+            ? `${avg} °C`
+            : "-- °C";
+
+        // Уведомление: записей больше 10 И текущая температура
+        // превышает среднюю более чем в 2 раза.
+        const alertCondition =
+            count > TEMP_RECORDS_THRESHOLD &&
+            avg !== null && avg !== undefined && avg > 0 &&
+            currentTemp !== null && currentTemp !== undefined &&
+            currentTemp > avg * TEMP_ALERT_MULTIPLIER;
+
+        if (alertCondition) {
+            avgEl.className = "red";
+            if (!tempAlertActive) {
+                showToast(
+                    `⚠️ Температура ${currentTemp} °C превышает среднюю ` +
+                    `(${avg} °C) более чем в ${TEMP_ALERT_MULTIPLIER} раза!`
+                );
+                tempAlertActive = true;
+            }
+        } else {
+            avgEl.className = "gray";
+            // Сбрасываем флаг, чтобы уведомление сработало снова
+            // при следующем превышении.
+            if (tempAlertActive) {
+                tempAlertActive = false;
+                hideToast();
+            }
+        }
 
         const doorState = document.getElementById("door-state");
         const doorBtn = document.getElementById("door-btn");
@@ -181,6 +244,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("brightness")
         .addEventListener("change", setLight);
+
+    document.getElementById("toast-close")
+        .addEventListener("click", hideToast);
 
     updateState();
     updateTimer = setInterval(updateState, UPDATE_INTERVAL);
