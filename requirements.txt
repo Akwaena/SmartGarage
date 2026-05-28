@@ -3,5 +3,5 @@ Flask>=3.0
 pymongo>=4.6
 requests>=2.31
 
-# Test-only dependency (in-memory MongoDB for test_smartgarage.py)
+# Test-only dependency
 mongomock>=4.3
